@@ -14,14 +14,19 @@ export const MovieSearch = () => {
   return (
     <div>
       <SearchBar onSearch={HandlerSearch} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8 ">
         {movieData.map((movie: any) => (
-          <Card
-            key={movie.id} // Agrega la propiedad "key" con un valor único (por ejemplo, el ID de la película)
-            title={movie.title}
-            overview={movie.overview}
-            poster_path={movie.poster_path}
-          />
+          <div className="mx-auto">
+            <Card
+              key={movie.id}
+              title={movie.title}
+              overview={movie.overview}
+              poster_path={movie.poster_path}
+              release_date={movie.release_date}
+              vote_average={movie.vote_average}
+              genres={movie.genres}
+            />
+          </div>
         ))}
       </div>
     </div>
