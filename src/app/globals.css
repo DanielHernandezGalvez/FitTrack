@@ -6,6 +6,13 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --tmdbLightGreen: 30, 213, 169;
+  --tmdbLightBlue: 1, 180, 228;
+  --gradient: linear-gradient(
+    to right,
+    rgba(var(--tmdbLightGreen), 1) 0%,
+    rgba(var(--tmdbLightBlue), 1) 100%
+  );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -104,7 +111,7 @@ body {
 
 .box .percent svg circle:nth-child(1) {
   stroke-dashoffset: 0;
-  stroke: #f3f3f3;
+  stroke: #ddd;
 }
 
 .box .percent svg circle:nth-child(2) {
@@ -112,9 +119,9 @@ body {
   stroke: #03a9f4;
 }
 
-.box .percent:hover {
+/* .box .percent:hover {
   transform: scale(1.1);
-}
+} */
 
 .box .percent .number {
   position: absolute;
