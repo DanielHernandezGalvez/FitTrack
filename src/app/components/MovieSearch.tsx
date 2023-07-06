@@ -16,9 +16,8 @@ export const MovieSearch = () => {
       <SearchBar onSearch={HandlerSearch} />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8 ">
         {movieData.map((movie: any) => (
-          <div className="mx-auto">
+          <div key={movie.id} className="mx-auto">
             <Card
-              key={movie.id}
               title={movie.title}
               overview={movie.overview}
               poster_path={movie.poster_path}
