@@ -1,87 +1,100 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Collapse, initTE } from "tw-elements";
+import MainCards from "./MainCards";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [filter, setFilter] = useState("");
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [filterName, setFilterName] = useState("Popular Movies"); // Estado para almacenar el nombre del filtro
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+  const handleFilter = (newFilter: string, name: string) => {
+    setFilter(newFilter);
+    setFilterName(name);
+  };
+
+  useEffect(() => {
+    initTE({ Collapse });
+  }, []);
+
+  const handleCollapseToggle = () => {
+    setIsCollapsed(!isCollapsed);
   };
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div
-        className={`fixed inset-y-0 left-0 w-64 bg-white border-r transition-transform duration-300 ease-in-out transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        {/* Sidebar content */}
-        <nav className="p-4">
-          {/* Sidebar links */}
-          <ul>
-            <li>
-              <a href="#" className="text-gray-600 hover:text-gray-800">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-gray-600 hover:text-gray-800">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-gray-600 hover:text-gray-800">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-gray-600 hover:text-gray-800">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
+    <>
+      <div id="sidebar" className="w-1/4  bg-gray-200">
+        <h2>{filterName}</h2>
+        <div></div>
+        <div id="accordion-container" className="p-3">
+          <div id="accordionExample">
+            <div className="rounded-[12px] shadow   bg-white  dark:bg-neutral-800">
+              <h2 className="mb-0" id="headingOne">
+                <button
+                  className="group relative flex w-full items-center rounded-[10px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                  type="button"
+                  data-te-collapse-init
+                  data-te-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Sort
+                  <span
+                    className={`ml-auto h-5 w-5 shrink-0 rotate-${
+                      isCollapsed ? "[-90deg]" : "[-180deg]"
+                    } fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white`}
+                    onClick={handleCollapseToggle}
+                  >
+                    {" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="h-5 w-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                className="!visible"
+                data-te-collapse-item
+                data-te-collapse-show
+                aria-labelledby="headingOne"
+                data-te-parent="#accordionExample"
+              >
+                <div className="px-5 py-4">
+                  <button onClick={() => handleFilter("upcoming", "Upcoming")}>
+                    <b className="small-text">Upcoming</b>
+                  </button>{" "}
+                  <br />
+                  <button
+                    onClick={() => handleFilter("popular", "Popular Movies")}
+                  >
+                    <b className="small-text">Popular Movies</b>
+                  </button>{" "}
+                  <br />
+                  <button
+                    onClick={() => handleFilter("top_rated", "Top Rated")}
+                  >
+                    <b className="small-text"> Top Rated</b>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* Main content */}
-      <div className="flex flex-col flex-grow">
-        {/* Navbar */}
-        <header className="flex items-center justify-between p-4 bg-gray-200">
-          {/* Sidebar toggle button */}
-          <button
-            className="text-gray-600 focus:outline-none lg:hidden"
-            onClick={toggleSidebar}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </button>
-
-          <h1 className="text-xl font-bold">My Website</h1>
-
-          {/* Other header content */}
-          {/* ... */}
-        </header>
-
-        {/* Main content */}
-        <main className="p-4">
-          {/* Page content */}
-          {/* ... */}
-        </main>
-      </div>
-    </div>
+      <MainCards filter={filter} />
+    </>
   );
 };
 

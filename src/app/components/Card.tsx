@@ -20,7 +20,7 @@ export default function Card({
 }: MovieCardProps) {
   const imageUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
-    : "/default-image.png";
+    : "/default.png";
 
   function formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -35,14 +35,14 @@ export default function Card({
   }
 
   return (
-    <div className="bg-white rounded  shadow m-2  max-w-[200px]   ">
+    <div className="bg-white rounded  shadow m-2  max-w-[200px]    ">
       <Image
         src={imageUrl}
         alt="Poster"
+        className="rounded-t-md mb-4"
         width={200}
-        height={550}
+        height={300}
         objectFit="cover"
-        className=" h-65  rounded-t-md mb-4"
       />
       {/* <span className="average">
         <span className="average-rate"> */}

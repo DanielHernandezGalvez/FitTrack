@@ -23,3 +23,17 @@ export const searchMovies = async (query: string) => {
     return [];
   }
 };
+
+export const getTopRatedMovies = async () => {
+  try {
+    const response = await client.get("/movie/top_rated");
+    if (response.data && response.data.results) {
+      return response.data.results;
+    } else {
+      console.error("Couldn't get the top rated movies");
+    }
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};

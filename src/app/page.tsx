@@ -1,9 +1,9 @@
 import React from "react";
 
 import Head from "next/head";
-import { MovieSearch } from "./components/MovieSearch";
 import NavBar from "./components/navbar/NavBar";
 import Sidebar from "./components/sidebar/SideBar";
+import Body from "./components/Body";
 
 export default function Home() {
   return (
@@ -16,16 +16,7 @@ export default function Home() {
         />
       </Head>
       <NavBar />
-      <div className="flex">
-        <div className="w-1/4 h-100 bg-gray-200">Columna 1</div>
-        <div className="flex-1 h-100 bg-gray-400">
-          {" "}
-          <main className="container mx-auto py-10 px-4 flex flex-col items-center justify-center">
-            <h1 className="text-4xl font-bold">Hola mundo</h1>
-            <MovieSearch />
-          </main>
-        </div>
-      </div>
+      <Body />
     </div>
   );
 }
