@@ -54,7 +54,7 @@ export default function Card({
         <h2 className="text-1xl font-bold ">{title}</h2>
         {/* <p className="text-sm text-gray-500">{overview.substring(0, 150)}</p> */}
         <p>
-          {release_date !== "" ? formatDate(release_date) : <p>Without Date</p>}{" "}
+          {release_date !== "" ? formatDate(release_date) : <p>Coming Soon</p>}
         </p>
 
         {/* <p>Genres: {genres}</p> */}

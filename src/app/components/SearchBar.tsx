@@ -17,19 +17,21 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex items-center w-screen max-w-3xl"
-    >
-      <input
-        type="text"
-        className="border border-gray-300 rounded-1
+    <div className="search">
+      <form onSubmit={handleSubmit} className="search-form">
+        <input
+          type="text"
+          className="border  border-gray-300 input-search
             py-2 px-4 w-full focus:outline-none
             focus:border-blue-500"
-        value={query}
-        onChange={handleChange}
-      />
-      <button type="submit">Search</button>
-    </form>
+          value={query}
+          onChange={handleChange}
+          placeholder="Search for a movie, tv show, person......"
+        />
+        <button className=" btn-search rounded-r" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
   );
 };

@@ -6,13 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --tmdbLightGreen: 30, 213, 169;
-  --tmdbLightBlue: 1, 180, 228;
-  --gradient: linear-gradient(
-    to right,
-    rgba(var(--tmdbLightGreen), 1) 0%,
-    rgba(var(--tmdbLightBlue), 1) 100%
-  );
+
+  --color-primary: #0d253f;
+  --tmdbLightGreen: rgb(30, 213, 169);
+  --tmdbLightBlue: rgb(1, 180, 228);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +32,25 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+/* Navbar */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.language {
+  width: 28px;
+  height: 26px;
+  align-content: center;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 3px 5px;
+  transition: linear 0.1s;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8em;
+  text-transform: uppercase;
 }
 
 .description {
@@ -101,7 +117,7 @@ body {
 .box .percent svg circle {
   width: 50px;
   height: 50px;
-  fill: #fff;
+  fill: #081c22;
   stroke-width: 5;
   stroke: black;
   transform: translate(2.5px, 2.5px);
@@ -111,12 +127,12 @@ body {
 
 .box .percent svg circle:nth-child(1) {
   stroke-dashoffset: 0;
-  stroke: #ddd;
+  stroke: #234b2a;
 }
 
 .box .percent svg circle:nth-child(2) {
   /* stroke-dashoffset: calc(110 - (110 * 87) / 100); */
-  stroke: #03a9f4;
+  stroke: #21d47c;
 }
 
 /* .box .percent:hover {
@@ -131,7 +147,7 @@ body {
   text-align: center;
   width: 100%;
   z-index: 2;
-  color: red;
+  color: white;
 }
 
 .percent .number p {
@@ -148,4 +164,41 @@ body {
   color: #999;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+/* SearchBAr */
+
+.search {
+  display: inline;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.search-form {
+  position: relative;
+  width: 100%;
+}
+
+.input-search {
+  height: 46px;
+  line-height: 46px;
+  font-size: 1.1em;
+  color: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.btn-search {
+  background: linear-gradient(
+    to right,
+    rgba(30, 213, 169, 1),
+    rgba(1, 180, 228, 1)
+  ) !important;
+  color: #fff;
+  height: 46px;
+  padding: 10px 26px;
+  border-radius: 30px;
+  font-weight: bolder;
+  margin-left: 10px;
 }

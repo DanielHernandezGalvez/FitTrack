@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { MovieSearch } from "./components/MovieSearch";
+import NavBar from "./components/navbar/NavBar";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
           content="The Movie Database (TMDB) is a popular, user editable database for movies and TV shows."
         />
       </Head>
-
+      <NavBar />
       <main className="container mx-auto py-10 px-4 flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold">Hola mundo</h1>
         <MovieSearch />
