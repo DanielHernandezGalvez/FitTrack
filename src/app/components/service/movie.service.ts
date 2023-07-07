@@ -10,9 +10,7 @@ const client = axios.create({
 
 export const searchMovies = async (query: string) => {
   try {
-    const response = await client.get("/search/movie", {
-      params: { query },
-    });
+    const response = await client.get("/movie/popular");
     if (response.data && response.data.results) {
       return response.data.results;
     } else {
@@ -22,6 +20,24 @@ export const searchMovies = async (query: string) => {
     console.error(error);
     return [];
   }
+};
+export const searchUpcomingMovies = async (query: string) => {
+  try {
+    const response = await client.get("/movie/upcoming");
+    if (response.data && response.data.results) {
+      return response.data.results;
+    } else {
+      console.error("Couldn't get the movies");
+    }
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
+export const getQueryParam = (url: string, param: string) => {
+  const urlSearchParams = new URLSearchParams(url);
+  return urlSearchParams.get(param);
 };
 
 export const getTopRatedMovies = async () => {

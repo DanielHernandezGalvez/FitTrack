@@ -1,13 +1,11 @@
 import React from "react";
-import { MovieSearch } from "../components/MovieSearch";
 import Sidebar from "./sidebar/SideBar";
-import MainCards from "./sidebar/MainCards";
 
 export default function Body() {
   return (
     <div>
       {" "}
-      <div className="flex">
+      <div className="flex pt-10">
         <Sidebar />
       </div>
     </div>

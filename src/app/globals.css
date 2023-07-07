@@ -21,7 +21,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Source Sans Pro";
 }
 
 .small-text {
@@ -203,4 +203,27 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+/* Details */
+
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.fullscreen-content {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: white;
+  padding: 20px;
 }

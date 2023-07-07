@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Collapse, initTE } from "tw-elements";
 import MainCards from "./MainCards";
+import MovieList from "./MovieList";
 
 const Sidebar = () => {
   const [filter, setFilter] = useState("");
@@ -23,12 +24,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <div id="sidebar" className="w-1/4  bg-gray-200">
-        <h2>{filterName}</h2>
+      <div id="sidebar" className="w-1/4  bg-white">
+        <h1 className="m-4 text-lg font-bold">{filterName}</h1>
         <div></div>
         <div id="accordion-container" className="p-3">
           <div id="accordionExample">
-            <div className="rounded-[12px] shadow   bg-white  dark:bg-neutral-800">
+            <div className="rounded-[12px] shadow-md   bg-white  dark:bg-neutral-800">
               <h2 className="mb-0" id="headingOne">
                 <button
                   className="group relative flex w-full items-center rounded-[10px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
@@ -93,7 +94,9 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      <MainCards filter={filter} />
+      <div className="w-3/4 mx-10 mt-5">
+        {filter === "" ? <MovieList /> : <MainCards filter={filter} />}
+      </div>
     </>
   );
 };

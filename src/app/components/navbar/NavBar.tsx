@@ -3,15 +3,16 @@ import Image from "next/image";
 import logo from "/public/TMDB.svg";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 export default function NavBar() {
   return (
     <nav className="bg-primary text-white py-5 px-4">
       <div className="container mx-auto flex justify-between items-center max-w-7xl ">
         <div className="flex justify-center">
-          <a className="text-xl mx-6 my-auto font-bold" href="#">
+          <Link href="/" className="text-xl mx-6 my-auto font-bold">
             <Image src={logo.src} alt="TMDB Logo" width={155} height={50} />
-          </a>
+          </Link>
           <div className="space-x-4 flex-wrap">
             <a className="hover:text-gray-300" href="#">
               Movies

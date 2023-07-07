@@ -5,7 +5,9 @@ interface VoteAverageProps {
 }
 
 const VoteAverage: React.FC<VoteAverageProps> = ({ voteAverage }) => {
-  const formattedVoteAverage = voteAverage.toFixed(1).replace(".", "");
+  const formattedVoteAverage = voteAverage
+    ? voteAverage.toFixed(1).replace(".", "")
+    : "";
   const strokeDashoffset = 220 - (175 * parseFloat(formattedVoteAverage)) / 100;
   return (
     <div className="box">
