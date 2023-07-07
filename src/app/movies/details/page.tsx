@@ -21,7 +21,7 @@ const DetailsPage = () => {
   let idPeli;
 
   for (const value of values) {
-    idPeli = value; // Asigna cada valor a la variable idPeli
+    idPeli = value;
   }
 
   const [movieDetails, setMovieDetails] = useState(null);
@@ -213,26 +213,6 @@ const DetailsPage = () => {
                           Resumen
                         </h3>
                         <p className="mt-2.5"> {movieDetails.overview}</p>
-                        <div className=" w-full ">
-                          <ol className=" flex flex-wrap justify-start mt-5 reltive top-0 left-0">
-                            <li className="min-w-[140px] w-2/6 pt-5">
-                              <p className="font-semibold">Name</p>
-                              <p className="text-sm">Position</p>
-                            </li>
-                            <li className="min-w-[140px] w-2/6 pt-5">
-                              <p className="font-semibold">Name</p>
-                              <p className="text-sm">Position</p>
-                            </li>
-                            <li className="min-w-[140px] w-2/6 pt-5">
-                              <p className="font-semibold">Name</p>
-                              <p className="text-sm">Position</p>
-                            </li>
-                            <li className="min-w-[140px] w-2/6 pt-5">
-                              <p className="font-semibold">Name</p>
-                              <p className="text-sm">Position</p>
-                            </li>
-                          </ol>
-                        </div>
                       </div>
                     </section>
                   </div>

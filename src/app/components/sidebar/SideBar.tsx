@@ -7,7 +7,7 @@ import MovieList from "./MovieList";
 const Sidebar = () => {
   const [filter, setFilter] = useState("");
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const [filterName, setFilterName] = useState("Popular Movies"); // Estado para almacenar el nombre del filtro
+  const [filterName, setFilterName] = useState("Popular Movies");
 
   const handleFilter = (newFilter: string, name: string) => {
     setFilter(newFilter);

@@ -13,7 +13,6 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({
   release_date,
   genres,
 }) => {
-  // Aquí puedes usar las props recibidas para renderizar la pantalla completa con los detalles de la película
   return (
     <div className="fullscreen-overlay">
       <div className="fullscreen-content">

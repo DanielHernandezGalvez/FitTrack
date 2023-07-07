@@ -30,8 +30,6 @@ export default function Card({
   backdrop_path,
   filter,
 }: MovieCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false); // Estado para controlar si se muestra la pantalla completa
-
   const imageUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
     : "/default.png";
@@ -75,50 +73,3 @@ export default function Card({
     </Link>
   );
 }
-
-// "use client";
-// import React from "react";
-// import Image from "next/image";
-// import Link from "next/link";
-// import VoteAverage from "../VoteAverage";
-
-// const Card = ({ movieID, imageSrc, title, releaseDate, vote_average }) => {
-//   return (
-//     <div className="border sombra rounded-xl mt-5 flex flex-col flex-wrap movie-card w-[180px] font-sans">
-//       <Link
-//         className="cursor-pointer hover:opacity-75"
-//         href={`/movies/details?key=${movieID}`}
-//       >
-//         <Image
-//           src={`https://image.tmdb.org/t/p/w200_and_h300_face${imageSrc}`}
-//           alt={`Poster Movie ${title}`}
-//           width={200}
-//           height={300}
-//           priority
-//           className="rounded-t-xl "
-//         />
-//       </Link>
-//       <div className="movie-data text-lg text-copy pt-7 px-3 pb-5 relative min-w-min">
-//         <VoteAverage voteAverage={vote_average} />
-
-//         <Link
-//           className="text-base cursor-pointer hover:text-cyan-500"
-//           href={`/movies/details?key=${movieID}`}
-//         >
-//           <h2 className="font-bold capitalize cursor-pointer line-clamp-3">
-//             {title}
-//           </h2>
-//         </Link>
-//         <p className="text-base text-slate-500">
-//           {new Date(releaseDate).toLocaleDateString("en-US", {
-//             year: "numeric",
-//             month: "long",
-//             day: "numeric",
-//           })}
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Card;
