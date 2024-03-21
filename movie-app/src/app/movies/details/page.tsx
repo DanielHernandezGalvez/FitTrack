@@ -14,7 +14,7 @@ import {
 import NavBar from "@/app/components/navbar/NavBar";
 import VoteAverage from "@/app/components/VoteAverage";
 
-const DetailsPage = () => {
+function DetailsPage() {
   const valores = window.location.search;
   const urlParams = new URLSearchParams(valores);
   const values = urlParams.values();
