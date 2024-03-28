@@ -128,10 +128,6 @@ body {
   stroke: #21d47c;
 }
 
-/* .box .percent:hover {
-  transform: scale(1.1);
-} */
-
 .box .percent .number {
   position: absolute;
   top: 50%;
