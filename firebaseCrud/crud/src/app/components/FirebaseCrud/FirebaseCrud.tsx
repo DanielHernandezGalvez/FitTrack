@@ -13,6 +13,7 @@ interface CustomerData {
 const database = FirebaseConfig();
 
 export default function FirebaseCrud() {
+  
   const [userName, setUsername] = useState<string>("");
   const [fullname, setFullname] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
